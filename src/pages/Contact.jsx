@@ -1,93 +1,214 @@
-import { Mail, MapPin, Phone } from "lucide-react";
-import React from "react";
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
+import { Mail, MapPin, Phone, Send, Github, Linkedin } from "lucide-react";
+
+const contactInfo = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "sheha8757@gmail.com",
+    href: "mailto:sheha8757@gmail.com",
+    color: "text-cyan-400",
+    bg: "bg-cyan-500/10",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+20 109 263 2833",
+    href: "tel:+201092632833",
+    color: "text-purple-400",
+    bg: "bg-purple-500/10",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Menoufia, Egypt",
+    href: null,
+    color: "text-emerald-400",
+    bg: "bg-emerald-500/10",
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 const Contact = () => {
   return (
-    <div id="contact">
-      <div className="flex flex-col justify-center items-center gap-4 mt-10 p-4">
-        <h1 className="text-4xl text-blue-600 font-bold animate__animated animate__fadeInUp animate__fadeInUpBig">
-          <motion.div
-            initial={{ opacity: 0 }}
-            transition={{ duration: 3 }}
-            whileInView={{ opacity: 1 }}
-            animate={{ textShadow: ["0 0 5px blue"] }}
+    <section id="contact" className="py-20 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16">
+      <div className="max-w-7xl mx-auto">
+        <Motion.div
+          className="text-center mb-12 sm:mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="inline-block px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm font-medium mb-4">
+            Contact
+          </span>
+          <h2 className="section-title mb-4">Get In Touch</h2>
+          <p className="section-subtitle mx-auto px-4">
+            Have a project in mind or want to collaborate? Feel free to reach out!
+          </p>
+        </Motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
+          <Motion.div
+            className="lg:col-span-2 space-y-4 sm:space-y-5"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
           >
-            Contacts
-          </motion.div>
-        </h1>
-        <div className="card flex flex-row gap-5 bg-gray-100 text-gray-700 p-4 md:w-100 w-full">
-          <motion.div
-            animate={{
-              boxShadow: [
-                "0 0 0px rgba(0,0,0,0)",
-                "0 0 12px rgba(99,102,241,0.8)",
-                "0 0 0px rgba(0,0,0,0)",
-              ],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              repeatType: "loop",
-            }}
-            className="p-3 bg-white rounded-xl"
+            {contactInfo.map((info, index) => {
+              const Tag = info.href ? "a" : "div";
+              return (
+                <Motion.div key={index} variants={itemVariants}>
+                  <Tag
+                    href={info.href || undefined}
+                    target={info.href ? "_blank" : undefined}
+                    className="glass-card p-4 sm:p-5 flex items-center gap-3 sm:gap-4 hover-lift block cursor-default"
+                  >
+                    <div className={`w-11 h-11 sm:w-12 sm:h-12 ${info.bg} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                      <info.icon size={20} className={info.color} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs sm:text-sm text-slate-500 mb-0.5">{info.label}</p>
+                      <p className="text-white font-medium text-sm sm:text-base truncate">{info.value}</p>
+                    </div>
+                  </Tag>
+                </Motion.div>
+              );
+            })}
+
+            <Motion.div variants={itemVariants} className="flex gap-3 pt-2 justify-center sm:justify-start">
+              <Motion.a
+                href="https://github.com/yousef-sheha12"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-cyan-400 hover:border-cyan-400/30 hover:bg-cyan-400/5 transition-all duration-300"
+                whileHover={{ scale: 1.1, y: -4 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Github size={20} />
+              </Motion.a>
+              <Motion.a
+                href="https://www.linkedin.com/in/yousef-sheha-1a9316375"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-cyan-400 hover:border-cyan-400/30 hover:bg-cyan-400/5 transition-all duration-300"
+                whileHover={{ scale: 1.1, y: -4 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Linkedin size={20} />
+              </Motion.a>
+              <Motion.a
+                href="mailto:sheha8757@gmail.com"
+                className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-cyan-400 hover:border-cyan-400/30 hover:bg-cyan-400/5 transition-all duration-300"
+                whileHover={{ scale: 1.1, y: -4 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Mail size={20} />
+              </Motion.a>
+            </Motion.div>
+          </Motion.div>
+
+          <Motion.div
+            className="lg:col-span-3"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
           >
-            <Mail size={30} className="text-indigo-600" />
-          </motion.div>
-          <div>
-            <p>Email</p>
-            <h1 className="font-bold">joesheha8757@gmail.com</h1>
-          </div>
+            <form
+              className="glass-card p-5 sm:p-6 md:p-8 space-y-4 sm:space-y-5"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                const name = formData.get("name");
+                const email = formData.get("email");
+                const message = formData.get("message");
+                window.open(
+                  `mailto:sheha8757@gmail.com?subject=Portfolio Contact from ${name}&body=${message}%0A%0AFrom: ${name} (${email})`,
+                  "_blank"
+                );
+              }}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/25 transition-all duration-300"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/25 transition-all duration-300"
+                    placeholder="john@example.com"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/25 transition-all duration-300 resize-none"
+                  placeholder="Tell me about your project..."
+                />
+              </div>
+              <Motion.button
+                type="submit"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Send size={18} />
+                Send Message
+              </Motion.button>
+            </form>
+          </Motion.div>
         </div>
-        <div className="card flex flex-row gap-5 bg-gray-100 text-gray-700 p-4 md:w-100 w-full">
-          <motion.div
-            animate={{
-              boxShadow: [
-                "0 0 0px rgba(0,0,0,0)",
-                "0 0 12px rgba(99,102,241,0.8)",
-                "0 0 0px rgba(0,0,0,0)",
-              ],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              repeatType: "loop",
-            }}
-            className="p-3 bg-white rounded-xl"
-          >
-            <Phone size={30} className="text-indigo-600" />
-          </motion.div>
-          <div>
-            <p>Phone</p>
-            <h1 className="font-bold">+201092632833</h1>
-          </div>
-        </div>
-        <div className="card flex flex-row gap-5 bg-gray-100 text-gray-700 p-4 md:w-100 w-full">
-          <motion.div
-            animate={{
-              boxShadow: [
-                "0 0 0px rgba(0,0,0,0)",
-                "0 0 12px rgba(99,102,241,0.8)",
-                "0 0 0px rgba(0,0,0,0)",
-              ],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              repeatType: "loop",
-            }}
-            className="p-3 bg-white rounded-xl"
-          >
-            <MapPin size={30} className="text-indigo-600" />
-          </motion.div>
-          <div>
-            <p>Location</p>
-            <h1 className="font-bold">Menoufia , Egypt</h1>
-          </div>
-        </div>
+
+        <Motion.div
+          className="mt-16 sm:mt-20 pt-6 sm:pt-8 border-t border-white/5 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-slate-500 text-xs sm:text-sm">
+            Designed & Built by{" "}
+            <span className="text-cyan-400 font-semibold">Yousef Sheha</span>{" "}
+            &copy; {new Date().getFullYear()}
+          </p>
+        </Motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

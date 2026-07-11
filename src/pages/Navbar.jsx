@@ -1,118 +1,117 @@
-import { useState } from "react";
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion as Motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+
+const navLinks = [
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
 
 const Navbar = () => {
-  const [isMenuVisible, setIsMenuVisible] = useState(false);
-  const toggleMenu = () => {
-    setIsMenuVisible(!isMenuVisible);
-  };
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const scrollToSection = (id) => {
-    const section = document.querySelector(id);
-    section?.scrollIntoView({ behavior: "smooth" });
-  };
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="p-4 flex justify-center w-full relative ">
-      {/* NAVBAR */}
-      <nav className="shadow-xl w-[90%] rounded-2xl px-4 py-3  fixed top-4 z-20 flex justify-between items-center">
-        <h1
-          className="font-bold text-2xl cursor-pointer"
-          onClick={() => scrollToSection("#home")}
+    <Motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-[#111827]/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <Motion.a
+          href="#home"
+          className="text-2xl font-bold font-['Space_Grotesk'] tracking-tight"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <motion.div animate={{ textShadow: ["0 0 3px"] }}>
-            Portfolio
-          </motion.div>
-        </h1>
+          <span className="text-cyan-400">&lt;</span>
+          <span className="text-white">Yousef</span>
+          <span className="text-cyan-400"> /&gt;</span>
+        </Motion.a>
 
-        {/* Desktop Menu */}
-        <motion.ul whileHover={{ textShadow: ["0 0 5px"] }}>
-          <ul className="hidden sm:flex gap-6 font-medium">
-            <a href="#home">
-              <li className="hover:text-indigo-500 cursor-pointer">Home</li>
-            </a>
-
-            <a href="#about">
-              <li className="hover:text-indigo-500 cursor-pointer">About</li>
-            </a>
-            <a href="#skills">
-              <li className="hover:text-indigo-500 cursor-pointer">Skills</li>
-            </a>
-            <a href="#projects">
-              <li className="hover:text-indigo-500 cursor-pointer">Projects</li>
-            </a>
-
-            <a href="#contact">
-              <li className="hover:text-indigo-500 cursor-pointer">Contact</li>
-            </a>
-          </ul>
-        </motion.ul>
-
-        {/* Mobile Hamburger */}
-        <button
-          onClick={toggleMenu}
-          className="sm:hidden z-30 p-2 rounded-xl transition-transform duration-300"
-        >
-          {!isMenuVisible ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="h-7 w-7 stroke-current cursor-pointer"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="h-7 w-7 stroke-current cursor-pointer"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          )}
-        </button>
-      </nav>
-
-      {/* MOBILE SLIDE MENU */}
-      <div
-        className={`fixed top-0 right-0 h-full w-64 bg-gray-800 text-white shadow-2xl pt-20 px-6 transform transition-transform duration-300 ease-in-out z-10 rounded-l-3xl ${
-          isMenuVisible ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <ul className="flex flex-col gap-6 text-lg font-medium">
-          <a href="#home">
-              <li className="hover:text-indigo-500 cursor-pointer">Home</li>
-            </a>
-
-            <a href="#about">
-              <li className="hover:text-indigo-500 cursor-pointer">About</li>
-            </a>
-            <a href="#skills">
-              <li className="hover:text-indigo-500 cursor-pointer">Skills</li>
-            </a>
-            <a href="#projects">
-              <li className="hover:text-indigo-500 cursor-pointer">Projects</li>
-            </a>
-
-            <a href="#contact">
-              <li className="hover:text-indigo-500 cursor-pointer">Contact</li>
-            </a>
+        <ul className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <Motion.a
+                href={link.href}
+                className="relative px-4 py-2 text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors duration-300 rounded-lg"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {link.name}
+              </Motion.a>
+            </li>
+          ))}
         </ul>
+
+        <Motion.a
+          href="#contact"
+          className="hidden md:block px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Let's Talk
+        </Motion.a>
+
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden p-2 text-slate-300 hover:text-cyan-400 transition-colors"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
-    </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <Motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-[#111827]/95 backdrop-blur-xl border-t border-white/5"
+          >
+            <div className="px-6 py-6 flex flex-col gap-4">
+              {navLinks.map((link, i) => (
+                <Motion.a
+                  key={link.name}
+                  href={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  onClick={() => setIsOpen(false)}
+                  className="text-lg font-medium text-slate-300 hover:text-cyan-400 transition-colors py-2 border-b border-white/5"
+                >
+                  {link.name}
+                </Motion.a>
+              ))}
+              <Motion.a
+                href="#contact"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5 }}
+                onClick={() => setIsOpen(false)}
+                className="mt-2 px-5 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold rounded-xl text-center"
+              >
+                Let's Talk
+              </Motion.a>
+            </div>
+          </Motion.div>
+        )}
+      </AnimatePresence>
+    </Motion.nav>
   );
 };
 

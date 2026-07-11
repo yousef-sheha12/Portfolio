@@ -1,314 +1,207 @@
-import React from "react";
-import instapay from "/src/assets/instapay.png";
-import crud from "/src/assets/crud.png";
-import menu from "/src/assets/menu.png";
-import notes from "/src/assets/notes.png";
-import todolist from "/src/assets/todolist.png";
-import game from "/src/assets/game.png";
-import shopwise from "/src/assets/shopwise.png";
-import movie from "/src/assets/movie.png";
-import weather from "/src/assets/weather.png";
-import clothes from "/src/assets/clothes.png";
-import phones from "/src/assets/phones.png";
-import bank from "/src/assets/bank.png";
-import { SquareArrowOutUpLeft } from "lucide-react";
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
+import { ExternalLink, Github, Star } from "lucide-react";
+
+const projects = [
+  {
+    name: "Herfa-Next",
+    description:
+      "Orchestrating the UI/UX for a strategic national initiative aimed at empowering Egypt's digital economy with a scalable, high-performance platform.",
+    tech: ["Next.js", "React", "JavaScript"],
+    github: "https://github.com/yousef-sheha12/Herfa-Next",
+    live: "https://herfa.vercel.app",
+    gradient: "from-cyan-500 to-blue-500",
+    icon: "H",
+  },
+  {
+    name: "LMS - Learnify",
+    description:
+      "A comprehensive E-Learning platform featuring instructor dashboards, dynamic pricing, curriculum builders, and real-time analytics.",
+    tech: ["Next.js", "React", "JavaScript"],
+    github: "https://github.com/yousef-sheha12/LMS",
+    live: "https://lms-two-blush.vercel.app",
+    gradient: "from-purple-500 to-pink-500",
+    icon: "L",
+  },
+  {
+    name: "Fitness Team-1",
+    description:
+      "A fitness platform built during an internship at Huma-Volve Company with a focus on team collaboration and modern UI.",
+    tech: ["React", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/yousef-sheha12/Fitness-Team-1",
+    live: "https://fitness-team-1.vercel.app",
+    gradient: "from-emerald-500 to-teal-500",
+    icon: "F",
+  },
+  {
+    name: "Grocery App",
+    description:
+      "A modern grocery shopping application with a clean interface, built with Next.js for optimal performance and SEO.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/yousef-sheha12/Grocery-Next.js",
+    live: "https://grocery-next-js-j5gn.vercel.app",
+    gradient: "from-amber-500 to-orange-500",
+    icon: "G",
+  },
+  {
+    name: "Clothes Website",
+    description:
+      "A modern E-commerce web application specialized in fashion with dynamic UI, smooth animations, and seamless shopping.",
+    tech: ["React", "JavaScript", "Tailwind CSS"],
+    github: "https://github.com/yousef-sheha12/Clothes-Website",
+    live: "https://clothes-website-psi.vercel.app",
+    gradient: "from-pink-500 to-rose-500",
+    icon: "C",
+  },
+  {
+    name: "Bankist App",
+    description:
+      "A modern banking application for managing personal finances — track transactions, request loans, and monitor financial health.",
+    tech: ["JavaScript", "HTML", "CSS"],
+    github: "https://github.com/yousef-sheha12/Bankist-App",
+    live: "https://bankist-app-azure.vercel.app",
+    gradient: "from-indigo-500 to-violet-500",
+    icon: "B",
+  },
+  {
+    name: "Book Store",
+    description:
+      "A full-featured book store application with browsing, searching, and cart functionality for book enthusiasts.",
+    tech: ["React", "JavaScript", "CSS"],
+    github: "https://github.com/yousef-sheha12/book-store",
+    live: "https://book-store-sigma-ebon.vercel.app",
+    gradient: "from-teal-500 to-cyan-500",
+    icon: "BS",
+  },
+  {
+    name: "Hirely",
+    description:
+      "A modern hiring and recruitment platform connecting employers with talented candidates through an intuitive interface.",
+    tech: ["React", "JavaScript"],
+    github: "https://github.com/yousef-sheha12/hirely",
+    live: "https://hirely-chi.vercel.app",
+    gradient: "from-violet-500 to-purple-500",
+    icon: "Hi",
+  },
+  {
+    name: "Herfa Backend",
+    description:
+      "The backend API for the Herfa platform, built with ASP.NET Core and C# for scalable and secure data management.",
+    tech: ["C#", "ASP.NET Core", "SQL"],
+    github: "https://github.com/yousef-sheha12/Herfa-back",
+    live: null,
+    gradient: "from-sky-500 to-indigo-500",
+    icon: "HB",
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 const Projects = () => {
   return (
-    <div id="projects">
-      <div className="flex flex-col justify-center items-center gap-4 mt-7 p-4">
-        <h1 className="text-4xl text-blue-600 font-bold">
-          <motion.div
-            initial={{ opacity: 0 }}
-            transition={{ duration: 3 }}
-            whileInView={{ opacity: 1 }}
-            animate={{ textShadow: ["0 0 5px blue"] }}
-          >
+    <section id="projects" className="py-20 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16">
+      <div className="max-w-7xl mx-auto">
+        <Motion.div
+          className="text-center mb-12 sm:mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-medium mb-4">
             Projects
-          </motion.div>
-        </h1>
-        <p className="animate__animated animate__fadeInUp animate__fadeInUpBig">
-          A showcase of my recent work and personal projects
-        </p>
+          </span>
+          <h2 className="section-title mb-4">Featured Work</h2>
+          <p className="section-subtitle mx-auto px-4">
+            A showcase of my recent projects from GitHub starred repositories
+          </p>
+        </Motion.div>
+
+        <Motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {projects.map((project, index) => (
+            <Motion.div
+              key={index}
+              variants={itemVariants}
+              className="glass-card overflow-hidden hover-lift group"
+            >
+              <div className={`h-40 sm:h-48 bg-gradient-to-br ${project.gradient} relative flex items-center justify-center overflow-hidden`}>
+                <div className="absolute inset-0 bg-black/20" />
+                <Motion.span
+                  className="relative text-4xl sm:text-5xl font-bold text-white/90 font-['Space_Grotesk']"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  {project.icon}
+                </Motion.span>
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex gap-2">
+                  {project.live && (
+                    <Motion.a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-black/30 backdrop-blur-sm rounded-lg text-white hover:bg-black/50 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <ExternalLink size={16} />
+                    </Motion.a>
+                  )}
+                  <Motion.a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-black/30 backdrop-blur-sm rounded-lg text-white hover:bg-black/50 transition-colors"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Github size={16} />
+                  </Motion.a>
+                </div>
+              </div>
+
+              <div className="p-4 sm:p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <Star size={14} className="text-amber-400 fill-amber-400" />
+                  <span className="text-xs text-amber-400 font-medium">Starred</span>
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2 font-['Space_Grotesk']">
+                  {project.name}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-400 mb-3 sm:mb-4 leading-relaxed line-clamp-2">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  {project.tech.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="px-2 sm:px-3 py-1 text-[10px] sm:text-xs font-medium bg-white/5 border border-white/10 rounded-full text-slate-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Motion.div>
+          ))}
+        </Motion.div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 ">
-        <div className="card hover:scale-105 cursor-pointer bg-gray-400 rounded-2xl transition duration-1000">
-          <img src={bank} className="w-full h-60" />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl text-black font-semibold p-2">
-                Bankist App
-              </h1>
-              <p className="text-gray-600 p-2">
-                Bankist App with register(modal) and Login Page
-              </p>
-            </div>
-            <div>
-              <a target="blank" href="https://bankist-app-azure.vercel.app/">
-                <SquareArrowOutUpLeft
-                  size={35}
-                  className="text-black cursor-pointer hover:text-blue-700 mr-5"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="card hover:scale-105 cursor-pointer bg-gray-400 rounded-2xl transition duration-1000">
-          <img src={clothes} className="w-full h-60" />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl text-black font-semibold p-2">
-                Clothes Website
-              </h1>
-              <p className="text-gray-600 p-2">Clothes Website with React</p>
-            </div>
-            <div>
-              <a
-                target="blank"
-                href="https://github.com/yousef-sheha12/Clothes-Website"
-              >
-                <SquareArrowOutUpLeft
-                  size={35}
-                  className="text-black cursor-pointer hover:text-blue-700 mr-5"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="card hover:scale-105 cursor-pointer bg-gray-400 rounded-2xl transition duration-1000">
-          <img src={instapay} className="w-full h-60" />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl text-black font-semibold p-2">
-                Instapay Project
-              </h1>
-              <p className="text-gray-600 p-2">
-                Instapay with Login Page [React]
-              </p>
-            </div>
-            <div>
-              <a target="blank" href="https://instapay-navy.vercel.app/">
-                <SquareArrowOutUpLeft
-                  size={35}
-                  className="text-black cursor-pointer hover:text-blue-700 mr-5"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="card hover:scale-105 cursor-pointer bg-gray-400 rounded-2xl transition duration-1000">
-          <img src={movie} className="w-full h-60" />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl text-black font-semibold p-2">
-                Movie App
-              </h1>
-              <p className="text-gray-600 p-2">
-                Movie App To Save Your Films [React]
-              </p>
-            </div>
-            <div>
-              <a
-                target="blank"
-                href="https://movie-app-blue-kappa-28.vercel.app/"
-              >
-                <SquareArrowOutUpLeft
-                  size={35}
-                  className="text-black cursor-pointer hover:text-blue-700 mr-5"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="card hover:scale-105 cursor-pointer bg-gray-400 rounded-2xl transition duration-1000">
-          <img src={game} className="w-full h-60" />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl text-black font-semibold p-2">
-                Game Project
-              </h1>
-              <p className="text-gray-600 p-2">
-                Game with 2 Players in [React]
-              </p>
-            </div>
-            <div>
-              <a target="blank" href="https://game-sandy-mu.vercel.app/">
-                <SquareArrowOutUpLeft
-                  size={35}
-                  className="text-black cursor-pointer hover:text-blue-700 mr-5"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="card hover:scale-105 cursor-pointer bg-gray-400 rounded-2xl transition duration-1000">
-          <img src={notes} className="w-full h-60" />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl text-black font-semibold p-2">
-                Notes App
-              </h1>
-              <p className="text-gray-600 p-2">
-                Notes App and Save Your Notes [React]
-              </p>
-            </div>
-            <div>
-              <a target="blank" href="https://notes-app-beta-rosy.vercel.app/">
-                <SquareArrowOutUpLeft
-                  size={35}
-                  className="text-black cursor-pointer hover:text-blue-700 mr-5"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="card hover:scale-105 cursor-pointer bg-gray-400 rounded-2xl transition duration-1000">
-          <img src={todolist} className="w-full h-60" />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl text-black font-semibold p-2">
-                To-Do-List App
-              </h1>
-              <p className="text-gray-600 p-2">
-                To-Do-List App and Save Your Tasks [React]
-              </p>
-            </div>
-            <div>
-              <a
-                target="blank"
-                href="https://to-do-list-app-red-six.vercel.app/"
-              >
-                <SquareArrowOutUpLeft
-                  size={35}
-                  className="text-black cursor-pointer hover:text-blue-700 mr-5"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="card hover:scale-105 cursor-pointer bg-gray-400 rounded-2xl transition duration-1000">
-          <img src={phones} className="w-full h-60" />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl text-black font-semibold p-2">
-                Phones E-commerce
-              </h1>
-              <p className="text-gray-600 p-2">
-                Phones E-commerce with [React]
-              </p>
-            </div>
-            <div>
-              <a
-                target="blank"
-                href="https://github.com/yousef-sheha12/Phones-Store"
-              >
-                <SquareArrowOutUpLeft
-                  size={35}
-                  className="text-black cursor-pointer hover:text-blue-700 mr-5"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="card hover:scale-105 cursor-pointer bg-gray-400 rounded-2xl transition duration-1000">
-          <img src={weather} className="w-full h-60" />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl text-black font-semibold p-2">
-                Static Weather App
-              </h1>
-              <p className="text-gray-600 p-2">
-                Static Weather App with [React]
-              </p>
-            </div>
-            <div>
-              <a target="blank" href="https://static-weather-app.vercel.app/">
-                <SquareArrowOutUpLeft
-                  size={35}
-                  className="text-black cursor-pointer hover:text-blue-700 mr-5"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="card hover:scale-105 cursor-pointer bg-gray-400 rounded-2xl transition duration-1000">
-          <img src={shopwise} className="w-full h-60" />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl text-black font-semibold p-2">
-                Shopwise Landing Page
-              </h1>
-              <p className="text-gray-600 p-2">Landing Page in [React]</p>
-            </div>
-            <div>
-              <a
-                target="blank"
-                href="https://yousef-sheha12.github.io/shopwise/"
-              >
-                <SquareArrowOutUpLeft
-                  size={35}
-                  className="text-black cursor-pointer hover:text-blue-700 mr-5"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="card hover:scale-105 cursor-pointer bg-gray-400 rounded-2xl transition duration-1000">
-          <img src={crud} className="w-full h-60" />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl text-black font-semibold p-2">
-                CRUD App
-              </h1>
-              <p className="text-gray-600 p-2">CRUD App (fully javaScript)</p>
-            </div>
-            <div>
-              <a
-                target="blank"
-                href="https://yousef-sheha12.github.io/CRUD-App/"
-              >
-                <SquareArrowOutUpLeft
-                  size={35}
-                  className="text-black cursor-pointer hover:text-blue-700 mr-5"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="card hover:scale-105 cursor-pointer bg-gray-400 rounded-2xl transition duration-1000">
-          <img src={menu} className="w-full h-60" />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl text-black font-semibold p-2">
-                Cafe Menu
-              </h1>
-              <p className="text-gray-600 p-2">Menu with Html & Css Only</p>
-            </div>
-            <div>
-              <a target="blank" href="https://yousef-sheha12.github.io/MENU/">
-                <SquareArrowOutUpLeft
-                  size={35}
-                  className="text-black cursor-pointer hover:text-blue-700 mr-5"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 
