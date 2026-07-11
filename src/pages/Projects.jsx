@@ -10,77 +10,7 @@ const projects = [
     github: "https://github.com/yousef-sheha12/Herfa-Next",
     live: "https://herfa.vercel.app",
     gradient: "from-cyan-500 to-blue-500",
-    icon: "H",
-  },
-  {
-    name: "LMS - Learnify",
-    description:
-      "A comprehensive E-Learning platform featuring instructor dashboards, dynamic pricing, curriculum builders, and real-time analytics.",
-    tech: ["Next.js", "React", "JavaScript"],
-    github: "https://github.com/yousef-sheha12/LMS",
-    live: "https://lms-two-blush.vercel.app",
-    gradient: "from-purple-500 to-pink-500",
-    icon: "L",
-  },
-  {
-    name: "Fitness Team-1",
-    description:
-      "A fitness platform built during an internship at Huma-Volve Company with a focus on team collaboration and modern UI.",
-    tech: ["React", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/yousef-sheha12/Fitness-Team-1",
-    live: "https://fitness-team-1.vercel.app",
-    gradient: "from-emerald-500 to-teal-500",
-    icon: "F",
-  },
-  {
-    name: "Grocery App",
-    description:
-      "A modern grocery shopping application with a clean interface, built with Next.js for optimal performance and SEO.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/yousef-sheha12/Grocery-Next.js",
-    live: "https://grocery-next-js-j5gn.vercel.app",
-    gradient: "from-amber-500 to-orange-500",
-    icon: "G",
-  },
-  {
-    name: "Clothes Website",
-    description:
-      "A modern E-commerce web application specialized in fashion with dynamic UI, smooth animations, and seamless shopping.",
-    tech: ["React", "JavaScript", "Tailwind CSS"],
-    github: "https://github.com/yousef-sheha12/Clothes-Website",
-    live: "https://clothes-website-psi.vercel.app",
-    gradient: "from-pink-500 to-rose-500",
-    icon: "C",
-  },
-  {
-    name: "Bankist App",
-    description:
-      "A modern banking application for managing personal finances — track transactions, request loans, and monitor financial health.",
-    tech: ["JavaScript", "HTML", "CSS"],
-    github: "https://github.com/yousef-sheha12/Bankist-App",
-    live: "https://bankist-app-azure.vercel.app",
-    gradient: "from-indigo-500 to-violet-500",
-    icon: "B",
-  },
-  {
-    name: "Book Store",
-    description:
-      "A full-featured book store application with browsing, searching, and cart functionality for book enthusiasts.",
-    tech: ["React", "JavaScript", "CSS"],
-    github: "https://github.com/yousef-sheha12/book-store",
-    live: "https://book-store-sigma-ebon.vercel.app",
-    gradient: "from-teal-500 to-cyan-500",
-    icon: "BS",
-  },
-  {
-    name: "Hirely",
-    description:
-      "A modern hiring and recruitment platform connecting employers with talented candidates through an intuitive interface.",
-    tech: ["React", "JavaScript"],
-    github: "https://github.com/yousef-sheha12/hirely",
-    live: "https://hirely-chi.vercel.app",
-    gradient: "from-violet-500 to-purple-500",
-    icon: "Hi",
+    icon: "/src/assets/herfa.png",
   },
   {
     name: "Herfa Backend",
@@ -90,7 +20,78 @@ const projects = [
     github: "https://github.com/yousef-sheha12/Herfa-back",
     live: null,
     gradient: "from-sky-500 to-indigo-500",
-    icon: "HB",
+    icon: "/src/assets/herfa.png",
+  },
+  {
+    name: "Grocery App",
+    description:
+      "A modern grocery shopping application with a clean interface, built with Next.js for optimal performance and SEO.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/yousef-sheha12/Grocery-Next.js",
+    live: "https://grocery-next-js-j5gn.vercel.app",
+    gradient: "from-amber-500 to-orange-500",
+    icon: "/src/assets/grocery.png",
+  },
+  {
+    name: "Fitness Team-1",
+    description:
+      "A fitness platform built during an internship at Huma-Volve Company with a focus on team collaboration and modern UI.",
+    tech: ["React", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/yousef-sheha12/Fitness-Team-1",
+    live: "https://fitness-team-1.vercel.app",
+    gradient: "from-emerald-500 to-teal-500",
+    icon: "/src/assets/fitness.png",
+  },
+  {
+    name: "Hirely",
+    description:
+      "A modern hiring and recruitment platform connecting employers with talented candidates through an intuitive interface.",
+    tech: ["React", "JavaScript"],
+    github: "https://github.com/yousef-sheha12/hirely",
+    live: "https://hirely-chi.vercel.app",
+    gradient: "from-violet-500 to-purple-500",
+    icon: "/src/assets/hirely.png",
+  },
+  {
+    name: "Clothes Website",
+    description:
+      "A modern E-commerce web application specialized in fashion with dynamic UI, smooth animations, and seamless shopping.",
+    tech: ["React", "JavaScript", "Tailwind CSS"],
+    github: "https://github.com/yousef-sheha12/Clothes-Website",
+    live: "https://clothes-website-psi.vercel.app",
+    gradient: "from-pink-500 to-rose-500",
+    icon: "/src/assets/clothes.png",
+  },
+  {
+    name: "Bankist App",
+    description:
+      "A modern banking application for managing personal finances — track transactions, request loans, and monitor financial health.",
+    tech: ["JavaScript", "HTML", "CSS"],
+    github: "https://github.com/yousef-sheha12/Bankist-App",
+    live: "https://bankist-app-azure.vercel.app",
+    gradient: "from-indigo-500 to-violet-500",
+    icon: "/src/assets/bank.png",
+  },
+  {
+    name: "LMS - Learnify",
+    description:
+      "A comprehensive E-Learning platform featuring instructor dashboards, dynamic pricing, curriculum builders, and real-time analytics.",
+    tech: ["Next.js", "React", "JavaScript"],
+    github: "https://github.com/yousef-sheha12/LMS",
+    live: "https://lms-two-blush.vercel.app",
+    gradient: "from-purple-500 to-pink-500",
+    icon: "/src/assets/lms.png",
+  },
+
+  {
+    name: "Book Store",
+    description:
+      "A full-featured book store application with browsing, searching, and cart functionality for book enthusiasts.",
+    tech: ["React", "JavaScript", "CSS"],
+    github: "https://github.com/yousef-sheha12/book-store",
+    live: "https://book-store-sigma-ebon.vercel.app",
+    gradient: "from-teal-500 to-cyan-500",
+    icon: "/src/assets/book.png",
   },
 ];
 
@@ -109,7 +110,10 @@ const itemVariants = {
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16">
+    <section
+      id="projects"
+      className="py-20 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16"
+    >
       <div className="max-w-7xl mx-auto">
         <Motion.div
           className="text-center mb-12 sm:mb-16"
@@ -140,14 +144,25 @@ const Projects = () => {
               variants={itemVariants}
               className="glass-card overflow-hidden hover-lift group"
             >
-              <div className={`h-40 sm:h-48 bg-gradient-to-br ${project.gradient} relative flex items-center justify-center overflow-hidden`}>
+              <div
+                className={`h-40 sm:h-48 bg-gradient-to-br ${project.gradient} relative flex items-center justify-center overflow-hidden`}
+              >
                 <div className="absolute inset-0 bg-black/20" />
                 <Motion.span
                   className="relative text-4xl sm:text-5xl font-bold text-white/90 font-['Space_Grotesk']"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  {project.icon}
+                  {project.icon.startsWith("/") ||
+                  project.icon.includes(".") ? (
+                    <img
+                      src={project.icon}
+                      alt={project.name}
+                      className="w-full object-contain"
+                    />
+                  ) : (
+                    <span>{project.icon}</span>
+                  )}
                 </Motion.span>
                 <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex gap-2">
                   {project.live && (
@@ -178,7 +193,9 @@ const Projects = () => {
               <div className="p-4 sm:p-5">
                 <div className="flex items-center gap-2 mb-2">
                   <Star size={14} className="text-amber-400 fill-amber-400" />
-                  <span className="text-xs text-amber-400 font-medium">Starred</span>
+                  <span className="text-xs text-amber-400 font-medium">
+                    Starred
+                  </span>
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-white mb-2 font-['Space_Grotesk']">
                   {project.name}
