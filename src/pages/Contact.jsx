@@ -5,7 +5,7 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "sheha8757@gmail.com",
+    value: "joesheha8757@gmail.com",
     href: "mailto:sheha8757@gmail.com",
     color: "text-cyan-400",
     bg: "bg-cyan-500/10",
@@ -43,7 +43,10 @@ const itemVariants = {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16">
+    <section
+      id="contact"
+      className="py-20 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16"
+    >
       <div className="max-w-7xl mx-auto">
         <Motion.div
           className="text-center mb-12 sm:mb-16"
@@ -57,7 +60,8 @@ const Contact = () => {
           </span>
           <h2 className="section-title mb-4">Get In Touch</h2>
           <p className="section-subtitle mx-auto px-4">
-            Have a project in mind or want to collaborate? Feel free to reach out!
+            Have a project in mind or want to collaborate? Feel free to reach
+            out!
           </p>
         </Motion.div>
 
@@ -78,19 +82,28 @@ const Contact = () => {
                     target={info.href ? "_blank" : undefined}
                     className="glass-card p-4 sm:p-5 flex items-center gap-3 sm:gap-4 hover-lift block cursor-default"
                   >
-                    <div className={`w-11 h-11 sm:w-12 sm:h-12 ${info.bg} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                    <div
+                      className={`w-11 h-11 sm:w-12 sm:h-12 ${info.bg} rounded-xl flex items-center justify-center flex-shrink-0`}
+                    >
                       <info.icon size={20} className={info.color} />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-xs sm:text-sm text-slate-500 mb-0.5">{info.label}</p>
-                      <p className="text-white font-medium text-sm sm:text-base truncate">{info.value}</p>
+                      <p className="text-xs sm:text-sm text-slate-500 mb-0.5">
+                        {info.label}
+                      </p>
+                      <p className="text-white font-medium text-sm sm:text-base truncate">
+                        {info.value}
+                      </p>
                     </div>
                   </Tag>
                 </Motion.div>
               );
             })}
 
-            <Motion.div variants={itemVariants} className="flex gap-3 pt-2 justify-center sm:justify-start">
+            <Motion.div
+              variants={itemVariants}
+              className="flex gap-3 pt-2 justify-center sm:justify-start"
+            >
               <Motion.a
                 href="https://github.com/yousef-sheha12"
                 target="_blank"
@@ -139,7 +152,7 @@ const Contact = () => {
                 const message = formData.get("message");
                 window.open(
                   `mailto:sheha8757@gmail.com?subject=Portfolio Contact from ${name}&body=${message}%0A%0AFrom: ${name} (${email})`,
-                  "_blank"
+                  "_blank",
                 );
               }}
             >

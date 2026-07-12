@@ -1,6 +1,13 @@
 import { motion as Motion } from "framer-motion";
 import { ExternalLink, Github, Star } from "lucide-react";
-
+import herfa from "../assets/herfa.png";
+import bank from "../assets/bank.png";
+import book from "../assets/book.png";
+import clothes from "../assets/clothes.png";
+import fitness from "../assets/fitness.png";
+import grocery from "../assets/grocery.png";
+import hirely from "../assets/hirely.png";
+import lms from "../assets/lms.png";
 const projects = [
   {
     name: "Herfa-Next",
@@ -10,7 +17,7 @@ const projects = [
     github: "https://github.com/yousef-sheha12/Herfa-Next",
     live: "https://herfa.vercel.app",
     gradient: "from-cyan-500 to-blue-500",
-    icon: "/src/assets/herfa.png",
+    icon: herfa,
   },
   {
     name: "Herfa Backend",
@@ -20,7 +27,7 @@ const projects = [
     github: "https://github.com/yousef-sheha12/Herfa-back",
     live: null,
     gradient: "from-sky-500 to-indigo-500",
-    icon: "/src/assets/herfa.png",
+    icon: herfa,
   },
   {
     name: "Grocery App",
@@ -30,7 +37,7 @@ const projects = [
     github: "https://github.com/yousef-sheha12/Grocery-Next.js",
     live: "https://grocery-next-js-j5gn.vercel.app",
     gradient: "from-amber-500 to-orange-500",
-    icon: "/src/assets/grocery.png",
+    icon: grocery,
   },
   {
     name: "Fitness Team-1",
@@ -40,7 +47,7 @@ const projects = [
     github: "https://github.com/yousef-sheha12/Fitness-Team-1",
     live: "https://fitness-team-1.vercel.app",
     gradient: "from-emerald-500 to-teal-500",
-    icon: "/src/assets/fitness.png",
+    icon: fitness,
   },
   {
     name: "Hirely",
@@ -50,7 +57,7 @@ const projects = [
     github: "https://github.com/yousef-sheha12/hirely",
     live: "https://hirely-chi.vercel.app",
     gradient: "from-violet-500 to-purple-500",
-    icon: "/src/assets/hirely.png",
+    icon: hirely,
   },
   {
     name: "Clothes Website",
@@ -60,7 +67,7 @@ const projects = [
     github: "https://github.com/yousef-sheha12/Clothes-Website",
     live: "https://clothes-website-psi.vercel.app",
     gradient: "from-pink-500 to-rose-500",
-    icon: "/src/assets/clothes.png",
+    icon: clothes,
   },
   {
     name: "Bankist App",
@@ -70,7 +77,7 @@ const projects = [
     github: "https://github.com/yousef-sheha12/Bankist-App",
     live: "https://bankist-app-azure.vercel.app",
     gradient: "from-indigo-500 to-violet-500",
-    icon: "/src/assets/bank.png",
+    icon: bank,
   },
   {
     name: "LMS - Learnify",
@@ -80,7 +87,7 @@ const projects = [
     github: "https://github.com/yousef-sheha12/LMS",
     live: "https://lms-two-blush.vercel.app",
     gradient: "from-purple-500 to-pink-500",
-    icon: "/src/assets/lms.png",
+    icon: lms,
   },
 
   {
@@ -91,7 +98,7 @@ const projects = [
     github: "https://github.com/yousef-sheha12/book-store",
     live: "https://book-store-sigma-ebon.vercel.app",
     gradient: "from-teal-500 to-cyan-500",
-    icon: "/src/assets/book.png",
+    icon: book,
   },
 ];
 
@@ -145,7 +152,7 @@ const Projects = () => {
               className="glass-card overflow-hidden hover-lift group"
             >
               <div
-                className={`h-40 sm:h-48 bg-gradient-to-br ${project.gradient} relative flex items-center justify-center overflow-hidden`}
+                className={`h-40 sm:h-48 bg-linear-to-br ${project.gradient} relative flex items-center justify-center overflow-hidden`}
               >
                 <div className="absolute inset-0 bg-black/20" />
                 <Motion.span
@@ -153,8 +160,7 @@ const Projects = () => {
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  {project.icon.startsWith("/") ||
-                  project.icon.includes(".") ? (
+                  {project.icon ? (
                     <img
                       src={project.icon}
                       alt={project.name}
