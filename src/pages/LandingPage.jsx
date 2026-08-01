@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { motion as Motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
-import img from "/src/assets/myPhoto.jpg";
+import img from "/src/assets/myPhoto.jpeg";
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/yousef-sheha12" },
