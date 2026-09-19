@@ -9,7 +9,7 @@ const socialLinks = [
     icon: Linkedin,
     href: "https://www.linkedin.com/in/yousef-sheha-1a9316375",
   },
-  { icon: Mail, href: "mailto:joesheha8757@gmail.com" },
+  { icon: Mail, href: "mailto:sheha8757@gmail.com" },
 ];
 
 const particleData = [
@@ -159,7 +159,7 @@ const LandingPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Full Stack .NET Developer
+            Full Stack Developer
           </Motion.p>
 
           <Motion.p
