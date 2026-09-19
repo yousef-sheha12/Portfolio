@@ -8,7 +8,7 @@ import clothes from "../assets/clothes.png";
 import fitness from "../assets/fitness.png";
 import grocery from "../assets/grocery.png";
 import hirely from "../assets/hirely.png";
-import genzMaker from "../assets/genz-maker.svg";
+import genzMaker from "../assets/genz-maker.png";
 import upwork from "../assets/upwork.svg";
 import leoClinic from "../assets/leo-clinic.svg";
 import elara from "../assets/elara.svg";
@@ -25,9 +25,31 @@ const projects = [
     gradient: "from-blue-500 to-cyan-500",
     icon: genzMaker,
   },
+  {
+    name: "Herfa-Next",
+    description:
+      "A platform that helps users find and connect with skilled craftsmen through a modern and user-friendly interface.",
+    tech: ["Next.js", "React", "JavaScript"],
+    github: "https://github.com/yousef-sheha12/Herfa-Next",
+    live: "https://herfa.vercel.app",
+    swagger: null,
+    gradient: "from-cyan-500 to-blue-500",
+    icon: herfa,
+  },
 
   {
-    name: "UpWard Backend",
+    name: "Herfa Backend",
+    description:
+      "The backend API for the Herfa platform, built with ASP.NET Core and C# for scalable and secure data management.",
+    tech: ["C#", "ASP.NET Core", "SQL"],
+    github: "https://github.com/yousef-sheha12/Herfa-back",
+    live: null,
+    swagger: null,
+    gradient: "from-sky-500 to-indigo-500",
+    icon: herfa,
+  },
+  {
+    name: "UpWork Backend",
     description:
       "A scalable backend API for a professional platform, built with ASP.NET Core and Clean Architecture for secure and maintainable application development.",
     tech: ["C#", "ASP.NET Core", ".NET 9", "SQL Server", "EF Core"],
@@ -61,43 +83,6 @@ const projects = [
     gradient: "from-orange-500 to-rose-500",
     icon: elara,
   },
-
-  {
-    name: "Herfa-Next",
-    description:
-      "A platform that helps users find and connect with skilled craftsmen through a modern and user-friendly interface.",
-    tech: ["Next.js", "React", "JavaScript"],
-    github: "https://github.com/yousef-sheha12/Herfa-Next",
-    live: "https://herfa.vercel.app",
-    swagger: null,
-    gradient: "from-cyan-500 to-blue-500",
-    icon: herfa,
-  },
-
-  {
-    name: "Herfa Backend",
-    description:
-      "The backend API for the Herfa platform, built with ASP.NET Core and C# for scalable and secure data management.",
-    tech: ["C#", "ASP.NET Core", "SQL"],
-    github: "https://github.com/yousef-sheha12/Herfa-back",
-    live: null,
-    swagger: null,
-    gradient: "from-sky-500 to-indigo-500",
-    icon: herfa,
-  },
-
-  {
-    name: "Grocery App",
-    description:
-      "A modern grocery shopping application with a clean interface, built with Next.js for optimal performance and SEO.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/yousef-sheha12/Grocery-Next.js",
-    live: "https://grocery-next-js-j5gn.vercel.app",
-    swagger: null,
-    gradient: "from-amber-500 to-orange-500",
-    icon: grocery,
-  },
-
   {
     name: "Fitness Team-1",
     description:
@@ -108,6 +93,18 @@ const projects = [
     swagger: null,
     gradient: "from-emerald-500 to-teal-500",
     icon: fitness,
+  },
+
+  {
+    name: "Bankist App",
+    description:
+      "A modern banking application for managing personal finances, including transactions and loan requests.",
+    tech: ["JavaScript", "HTML", "CSS"],
+    github: "https://github.com/yousef-sheha12/Bankist-App",
+    live: "https://bankist-app-azure.vercel.app",
+    swagger: null,
+    gradient: "from-indigo-500 to-violet-500",
+    icon: bank,
   },
 
   {
@@ -135,15 +132,15 @@ const projects = [
   },
 
   {
-    name: "Bankist App",
+    name: "Grocery App",
     description:
-      "A modern banking application for managing personal finances, including transactions and loan requests.",
-    tech: ["JavaScript", "HTML", "CSS"],
-    github: "https://github.com/yousef-sheha12/Bankist-App",
-    live: "https://bankist-app-azure.vercel.app",
+      "A modern grocery shopping application with a clean interface, built with Next.js for optimal performance and SEO.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/yousef-sheha12/Grocery-Next.js",
+    live: "https://grocery-next-js-j5gn.vercel.app",
     swagger: null,
-    gradient: "from-indigo-500 to-violet-500",
-    icon: bank,
+    gradient: "from-amber-500 to-orange-500",
+    icon: grocery,
   },
 
   {
