@@ -46,10 +46,12 @@ const itemVariants = {
 const Contact = () => {
   const formRef = useRef(null);
   const [status, setStatus] = useState("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
     setStatus("sending");
+    setErrorMsg("");
 
     emailjs
       .sendForm(
@@ -63,7 +65,9 @@ const Contact = () => {
         formRef.current.reset();
         setTimeout(() => setStatus("idle"), 4000);
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error("EmailJS Error:", err);
+        setErrorMsg(err?.text || err?.message || "Unknown error");
         setStatus("error");
         setTimeout(() => setStatus("idle"), 4000);
       });
@@ -225,7 +229,7 @@ const Contact = () => {
               {status === "error" && (
                 <div className="flex items-center gap-2 text-red-400 text-sm">
                   <Mail size={16} />
-                  Failed to send. Try again later.
+                  Failed: {errorMsg}
                 </div>
               )}
 
