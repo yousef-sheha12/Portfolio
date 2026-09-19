@@ -55,10 +55,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_jxib414",
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_2od4j3c",
         formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "nAlWwooB272mJFH08",
       )
       .then(() => {
         setStatus("sent");
